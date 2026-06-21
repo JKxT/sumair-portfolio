@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sumair — AI Engineer & Automation Specialist</title>
+<meta name="description" content="AI Engineer and Automation Specialist building intelligent systems, LLM-powered chatbots, and workflow automation solutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0F1E;--bg-card:#111827;--bg-card-hover:#1A2540;
+  --accent:#00D4FF;--accent-dim:rgba(0,212,255,0.1);--accent-glow:rgba(0,212,255,0.22);
+  --text:#E8F0FE;--text-muted:#7A8BA8;--text-dim:#4A5568;
+  --border:rgba(0,212,255,0.12);--border-card:rgba(255,255,255,0.06);
+  --green:#00FF88;--purple:#A855F7;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.025) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 4rem;background:rgba(10,15,30,0.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:var(--text);text-decoration:none;letter-spacing:-.02em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.82rem;color:var(--text-muted);text-decoration:none;font-weight:500;letter-spacing:.05em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{color:var(--accent)!important;border:1px solid var(--accent)!important;padding:.4rem 1.1rem;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.78rem!important;transition:background .2s!important}
+.nav-cta:hover{background:var(--accent-dim)!important}
+section{position:relative;z-index:1}
+.section-wrap{max-width:1200px;margin:0 auto;padding:6rem 4rem}
+.section-label{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.6rem}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;letter-spacing:-.03em;margin-bottom:.8rem;line-height:1.15}
+.section-sub{font-size:1rem;color:var(--text-muted);max-width:520px;line-height:1.7;margin-bottom:3rem}
+.alt-bg{background:rgba(0,0,0,0.18)}
+.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 4rem 4rem;max-width:1200px;margin:0 auto}
+.hero-content{max-width:800px}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.4rem;display:flex;align-items:center;gap:.75rem}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--accent)}
+.avail-dot{width:7px;height:7px;border-radius:50%;background:var(--green);display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,255,136,.4)}50%{opacity:.8;box-shadow:0 0 0 6px rgba(0,255,136,0)}}
+.hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:700;line-height:1;letter-spacing:-.04em;margin-bottom:1rem}
+.hero-typewriter-line{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.3rem,2.8vw,2.2rem);font-weight:400;color:var(--text-muted);margin-bottom:1.6rem;min-height:2.6rem;display:flex;align-items:center;gap:.4rem}
+.typewriter-text{color:var(--accent);font-weight:600}
+.cursor{display:inline-block;width:2px;height:1.2em;background:var(--accent);animation:blink 1s step-end infinite;vertical-align:middle}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-bio{font-size:1.02rem;color:var(--text-muted);line-height:1.8;max-width:580px;margin-bottom:2.2rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.92rem;background:var(--accent);color:#0A0F1E;padding:.85rem 2rem;border-radius:6px;text-decoration:none;transition:all .2s;letter-spacing:-.01em}
+.btn-primary:hover{background:#33DDFF;transform:translateY(-1px);box-shadow:0 8px 30px rgba(0,212,255,.3)}
+.btn-secondary{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:.92rem;color:var(--text);padding:.85rem 2rem;border-radius:6px;border:1px solid var(--border-card);text-decoration:none;transition:all .2s}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.hero-stats{display:flex;gap:3rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid var(--border-card)}
+.stat-num{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;letter-spacing:-.04em}
+.stat-num span{color:var(--accent)}
+.stat-label{font-size:.78rem;color:var(--text-muted);margin-top:.2rem;text-transform:uppercase;letter-spacing:.08em}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem}
+.card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;padding:1.8rem;transition:all .25s;position:relative;overflow:hidden}
+.card:hover{border-color:rgba(0,212,255,.22);background:var(--bg-card-hover);transform:translateY(-2px)}
+.card-line{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0;transition:opacity .25s}
+.card:hover .card-line{opacity:1}
+.tag{font-family:'JetBrains Mono',monospace;font-size:.7rem;background:var(--accent-dim);color:var(--accent);padding:.22rem .65rem;border-radius:4px;border:1px solid rgba(0,212,255,.15)}
+.tag.green{background:rgba(0,255,136,.07);color:var(--green);border-color:rgba(0,255,136,.2)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+.outcome{display:flex;align-items:center;gap:.5rem;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:var(--green);background:rgba(0,255,136,.06);border:1px solid rgba(0,255,136,.15);padding:.45rem .8rem;border-radius:6px;width:fit-content;margin-top:.75rem}
+.outcome::before{content:'UP '}
+/* AI DEMOS */
+.ai-demos-section{background:rgba(0,0,0,0.22)}
+.ai-demos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(480px,1fr));gap:2rem}
+.ai-panel{background:var(--bg-card);border:1px solid var(--border-card);border-radius:16px;overflow:hidden;transition:border-color .25s}
+.ai-panel:hover{border-color:rgba(0,212,255,.2)}
+.panel-header{padding:1.2rem 1.6rem;border-bottom:1px solid var(--border-card);display:flex;align-items:center;gap:.75rem;background:rgba(0,0,0,.2)}
+.panel-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.pi-blue{background:rgba(0,212,255,.12);border:1px solid rgba(0,212,255,.2)}
+.pi-green{background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.2)}
+.pi-purple{background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.2)}
+.pi-orange{background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.2)}
+.panel-header-text{flex:1}
+.panel-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.95rem;color:var(--text)}
+.panel-sub{font-size:.74rem;color:var(--text-dim);margin-top:.1rem}
+.live-badge{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--green);background:rgba(0,255,136,.1);border:1px solid rgba(0,255,136,.25);padding:.2rem .6rem;border-radius:20px;display:flex;align-items:center;gap:.35rem;white-space:nowrap}
+.live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+.panel-body{padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:1rem}
+/* Chat */
+.chat-messages{height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:.75rem;scrollbar-width:thin;scrollbar-color:var(--border-card) transparent}
+.msg{max-width:85%;padding:.65rem 1rem;border-radius:10px;font-size:.84rem;line-height:1.55;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.msg.bot{background:var(--bg-card-hover);border:1px solid var(--border-card);color:var(--text-muted);align-self:flex-start;border-radius:4px 10px 10px 10px}
+.msg.user{background:var(--accent-dim);border:1px solid var(--border);color:var(--text);align-self:flex-end;border-radius:10px 4px 10px 10px}
+.msg.thinking{color:var(--text-dim);font-style:italic;font-family:'JetBrains Mono',monospace;font-size:.77rem}
+.chat-input-row{display:flex;gap:.6rem}
+.chat-input{flex:1;background:rgba(0,0,0,.3);border:1px solid var(--border-card);border-radius:8px;padding:.7rem 1rem;color:var(--text);font-family:'Inter',sans-serif;font-size:.84rem;outline:none;transition:border-color .2s}
+.chat-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.chat-send{background:var(--accent);color:#0A0F1E;border:none;border-radius:8px;padding:.7rem 1.1rem;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.82rem;cursor:pointer;transition:all .2s;white-space:nowrap}
+.chat-send:hover{background:#33DDFF}
+.chat-send:disabled{opacity:.4;cursor:not-allowed}
+.suggestions{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{font-size:.73rem;background:var(--accent-dim);border:1px solid var(--border);color:var(--accent);padding:.28rem .65rem;border-radius:20px;cursor:pointer;transition:all .2s;font-family:'JetBrains Mono',monospace}
+.chip:hover{background:rgba(0,212,255,.18)}
+/* Vision */
+.vision-drop{border:2px dashed var(--border-card);border-radius:10px;padding:2rem;text-align:center;cursor:pointer;transition:all .25s;background:rgba(0,0,0,.15)}
+.vision-drop:hover,.vision-drop.over{border-color:var(--accent);background:var(--accent-dim)}
+.vision-drop p{font-size:.84rem;color:var(--text-muted);margin-top:.5rem}
+.vision-drop small{font-size:.73rem;color:var(--text-dim)}
+.vision-preview{display:none;gap:1rem;align-items:flex-start}
+.vision-preview img{width:110px;height:85px;object-fit:cover;border-radius:8px;border:1px solid var(--border-card);flex-shrink:0}
+.vision-result{flex:1;font-size:.82rem;color:var(--text-muted);line-height:1.65;background:rgba(0,0,0,.2);border:1px solid var(--border-card);border-radius:8px;padding:.85rem 1rem;min-height:85px}
+.vision-result.loading{color:var(--text-dim);font-style:italic;font-family:'JetBrains Mono',monospace;font-size:.77rem}
+.ai-btn{background:var(--accent);color:#0A0F1E;border:none;border-radius:8px;padding:.72rem 1.4rem;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.84rem;cursor:pointer;transition:all .2s;width:100%}
+.ai-btn:hover{background:#33DDFF}
+.ai-btn:disabled{opacity:.4;cursor:not-allowed}
+.ai-btn.purple{background:var(--purple)}
+.ai-btn.purple:hover{background:#C084FC}
+/* NLP */
+.ai-textarea{width:100%;background:rgba(0,0,0,.3);border:1px solid var(--border-card);border-radius:8px;padding:.8rem 1rem;color:var(--text);font-family:'Inter',sans-serif;font-size:.82rem;resize:vertical;min-height:105px;outline:none;transition:border-color .2s;line-height:1.55}
+.ai-textarea:focus{border-color:var(--accent)}
+.nlp-result{background:rgba(0,0,0,.2);border:1px solid var(--border-card);border-radius:8px;padding:1rem;font-size:.82rem;color:var(--text-muted);line-height:1.65;display:none}
+.nlp-result.show{display:block;animation:fadeUp .3s ease}
+.match-bar{margin:.4rem 0;display:flex;align-items:center;gap:.7rem}
+.match-label{font-size:.77rem;color:var(--text-muted);width:155px;flex-shrink:0;font-family:'JetBrains Mono',monospace}
+.match-track{flex:1;height:5px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden}
+.match-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--green));transition:width .8s ease}
+.match-pct{font-family:'JetBrains Mono',monospace;font-size:.73rem;color:var(--accent);width:36px;text-align:right}
+/* Brief */
+.brief-output{background:rgba(168,85,247,.05);border:1px solid rgba(168,85,247,.2);border-radius:8px;padding:1rem;font-size:.82rem;color:var(--text-muted);line-height:1.65;display:none}
+.brief-output.show{display:block;animation:fadeUp .3s ease}
+.brief-label{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--purple);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}
+/* Skills */
+.sk-icon{font-size:1.4rem;margin-bottom:.8rem}
+.sk-title{font-family:'Space Grotesk',sans-serif;font-size:.97rem;font-weight:600;margin-bottom:.45rem}
+.sk-desc{font-size:.82rem;color:var(--text-muted);line-height:1.6}
+/* Projects */
+.pj-type{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.45rem}
+.pj-title{font-family:'Space Grotesk',sans-serif;font-size:1.12rem;font-weight:600;letter-spacing:-.02em;margin-bottom:.55rem}
+.pj-desc{font-size:.84rem;color:var(--text-muted);line-height:1.65}
+/* Testimonials */
+.stars{color:#FFD700;font-size:.78rem;letter-spacing:2px;margin-bottom:.5rem}
+.qmark{font-family:'Space Grotesk',sans-serif;font-size:2.5rem;color:var(--accent);opacity:.35;line-height:1;margin-bottom:.3rem}
+.ttext{font-size:.87rem;color:var(--text-muted);line-height:1.75;font-style:italic;margin-bottom:1.2rem}
+.author-row{display:flex;align-items:center;gap:.65rem}
+.avatar{width:37px;height:37px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#0066FF);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.8rem;color:#0A0F1E;flex-shrink:0}
+.aname{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.87rem}
+.arole{font-size:.75rem;color:var(--text-dim)}
+/* Process */
+.process-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.snum{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);margin-bottom:.9rem;opacity:.7}
+.stitle{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.97rem;margin-bottom:.45rem}
+.sdesc{font-size:.82rem;color:var(--text-muted);line-height:1.65}
+/* Blog */
+.bcat{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em}
+.bdate{font-size:.74rem;color:var(--text-dim)}
+.btitle{font-family:'Space Grotesk',sans-serif;font-size:.98rem;font-weight:600;margin:.55rem 0;line-height:1.35;letter-spacing:-.02em}
+.bexcerpt{font-size:.82rem;color:var(--text-muted);line-height:1.65}
+.bread{font-family:'JetBrains Mono',monospace;font-size:.73rem;color:var(--accent);margin-top:.75rem;display:inline-block}
+/* Contact */
+.contact-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start}
+.contact-info h3{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;margin-bottom:.5rem}
+.contact-info p{font-size:.85rem;color:var(--text-muted);line-height:1.7;margin-bottom:1.8rem}
+.clinks{display:flex;flex-direction:column;gap:.55rem}
+.clink{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--text-muted);font-size:.85rem;transition:color .2s}
+.clink:hover{color:var(--accent)}
+.cicon{width:33px;height:33px;border-radius:7px;background:var(--accent-dim);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.82rem;flex-shrink:0}
+.cform{display:flex;flex-direction:column;gap:.85rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.fg{display:flex;flex-direction:column;gap:.33rem}
+.fg label{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--text-muted);letter-spacing:.08em;text-transform:uppercase}
+.fg input,.fg textarea,.fg select{background:var(--bg-card);border:1px solid var(--border-card);border-radius:8px;padding:.78rem 1rem;color:var(--text);font-family:'Inter',sans-serif;font-size:.87rem;outline:none;transition:border-color .2s;width:100%}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.fg textarea{resize:vertical;min-height:115px}
+.fg select{appearance:none;cursor:pointer}
+.fg select option{background:var(--bg-card)}
+.form-submit{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.9rem;background:var(--accent);color:#0A0F1E;padding:.88rem 2rem;border-radius:8px;border:none;cursor:pointer;transition:all .2s;width:100%}
+.form-submit:hover{background:#33DDFF;transform:translateY(-1px);box-shadow:0 8px 28px rgba(0,212,255,.3)}
+.form-note{font-size:.74rem;color:var(--text-dim);text-align:center}
+footer{border-top:1px solid var(--border-card);padding:2.2rem 4rem;display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;position:relative;z-index:1}
+footer p{font-size:.78rem;color:var(--text-dim)}
+.flinks{display:flex;gap:1.8rem}
+.flinks a{font-size:.78rem;color:var(--text-muted);text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--accent)}
+.dw{max-width:1200px;margin:0 auto;padding:0 4rem;position:relative;z-index:1}
+.dl{border:none;border-top:1px solid var(--border-card)}
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--bg-card);border:1px solid var(--accent);border-radius:10px;padding:.9rem 1.4rem;font-size:.85rem;color:var(--text);z-index:999;transform:translateY(100px);opacity:0;transition:all .4s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;gap:.55rem}
+.toast.show{transform:translateY(0);opacity:1}
+.toast-icon{color:var(--green)}
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .hero{padding:7rem 1.5rem 3rem}
+  .hero-stats{gap:1.5rem;flex-wrap:wrap}
+  .section-wrap{padding:4rem 1.5rem}
+  .contact-layout{grid-template-columns:1fr;gap:2.5rem}
+  .form-row{grid-template-columns:1fr}
+  footer{padding:2rem 1.5rem;flex-direction:column;gap:1rem;text-align:center}
+  .flinks{flex-wrap:wrap;justify-content:center}
+  .ai-demos-grid{grid-template-columns:1fr}
+}
+
+/* ── INTERACTIVE PROJECTS ── */
+.iprojects-list{max-width:1200px;margin:0 auto;padding:0 4rem 1rem;display:flex;flex-direction:column;gap:2rem;position:relative;z-index:1}
+.iproject-block{background:var(--bg-card);border:1px solid var(--border-card);border-radius:18px;overflow:hidden;transition:border-color .3s}
+.iproject-block:hover{border-color:rgba(0,212,255,.18)}
+.iproject-header{padding:1.8rem 2rem 1.4rem;border-bottom:1px solid var(--border-card);display:flex;align-items:flex-start;gap:1.1rem}
+.iprojicon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;margin-top:.1rem}
+.iproject-header-text{flex:1}
+.ipnum{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--text-dim);margin-bottom:.25rem;letter-spacing:.1em}
+.iptitle{font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.38rem}
+.ipdesc{font-size:.85rem;color:var(--text-muted);line-height:1.68;max-width:620px}
+.ipmeta{display:flex;align-items:center;gap:.9rem;margin-top:.8rem;flex-wrap:wrap}
+.stat-pill{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--green);background:rgba(0,255,136,.07);border:1px solid rgba(0,255,136,.15);padding:.22rem .7rem;border-radius:20px}
+.tag-blue{background:rgba(0,212,255,.09);color:var(--accent);border:1px solid rgba(0,212,255,.18)}
+.tag-green2{background:rgba(0,255,136,.07);color:var(--green);border:1px solid rgba(0,255,136,.18)}
+.tag-purple2{background:rgba(168,85,247,.09);color:#A855F7;border:1px solid rgba(168,85,247,.18)}
+.tag-orange2{background:rgba(251,146,60,.08);color:#FB923C;border:1px solid rgba(251,146,60,.18)}
+.tag-pink2{background:rgba(244,114,182,.08);color:#F472B6;border:1px solid rgba(244,114,182,.18)}
+.demo-area{display:grid;grid-template-columns:1fr 1fr;min-height:240px}
+.demo-in{padding:1.5rem 1.8rem;border-right:1px solid var(--border-card);display:flex;flex-direction:column;gap:.8rem;background:rgba(0,0,0,.12)}
+.demo-out{padding:1.5rem 1.8rem;display:flex;flex-direction:column;gap:.8rem;background:rgba(5,8,18,.5)}
+.dcol-label{font-family:'JetBrains Mono',monospace;font-size:.67rem;color:var(--text-dim);letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:.45rem}
+.dcol-label::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%}
+.in-lbl::before{background:var(--accent)}
+.out-lbl::before{background:var(--green)}
+.dtextarea{width:100%;background:rgba(0,0,0,.28);border:1px solid var(--border-card);border-radius:8px;padding:.75rem .95rem;color:var(--text);font-family:'Inter',sans-serif;font-size:.81rem;resize:none;outline:none;transition:border-color .2s;line-height:1.58;flex:1;min-height:110px}
+.dtextarea:focus{border-color:rgba(0,212,255,.35);box-shadow:0 0 0 3px var(--accent-glow)}
+.dinput{width:100%;background:rgba(0,0,0,.28);border:1px solid var(--border-card);border-radius:8px;padding:.7rem .95rem;color:var(--text);font-family:'Inter',sans-serif;font-size:.81rem;outline:none;transition:border-color .2s}
+.dinput:focus{border-color:rgba(0,212,255,.35)}
+.dselect{width:100%;background:rgba(0,0,0,.38);border:1px solid var(--border-card);border-radius:8px;padding:.7rem .95rem;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:.76rem;outline:none;cursor:pointer;appearance:none;transition:border-color .2s}
+.dselect:focus{border-color:rgba(0,212,255,.35)}
+.dselect option{background:#111827}
+.irun-btn{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;padding:.75rem 1.5rem;border-radius:8px;border:none;cursor:pointer;transition:all .22s;letter-spacing:-.01em;width:100%}
+.irun-btn:disabled{opacity:.35;cursor:not-allowed}
+.rbtn-blue{background:var(--accent);color:#0A0F1E}
+.rbtn-blue:hover:not(:disabled){background:#33DDFF;box-shadow:0 6px 22px rgba(0,212,255,.28)}
+.rbtn-green{background:#00FF88;color:#0A0F1E}
+.rbtn-green:hover:not(:disabled){background:#33FFaa;box-shadow:0 6px 22px rgba(0,255,136,.28)}
+.rbtn-purple{background:#A855F7;color:#fff}
+.rbtn-purple:hover:not(:disabled){background:#C084FC}
+.rbtn-orange{background:#FB923C;color:#0A0F1E}
+.rbtn-orange:hover:not(:disabled){background:#FCA96A;box-shadow:0 6px 22px rgba(251,146,60,.28)}
+.rbtn-pink{background:#F472B6;color:#0A0F1E}
+.rbtn-pink:hover:not(:disabled){background:#F9A8D4}
+.obox{flex:1;background:rgba(0,0,0,.22);border:1px solid var(--border-card);border-radius:8px;padding:.95rem 1.05rem;font-size:.8rem;color:var(--text-muted);line-height:1.68;min-height:110px;overflow-y:auto;position:relative}
+.obox.empty::before{content:attr(data-ph);color:var(--text-dim);font-style:italic;font-family:'JetBrains Mono',monospace;font-size:.74rem}
+.obox.loading::before{content:'Running AI...';color:var(--text-dim);font-style:italic;font-family:'JetBrains Mono',monospace;font-size:.74rem;animation:blink2 1.2s infinite}
+@keyframes blink2{0%,100%{opacity:1}50%{opacity:.25}}
+.obox.active{color:var(--text);animation:fadeIn2 .4s ease}
+@keyframes fadeIn2{from{opacity:0}to{opacity:1}}
+.score-display2{display:flex;flex-direction:column;gap:.6rem}
+.score-row2{display:flex;align-items:center;gap:.65rem}
+.score-lbl2{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text-muted);width:125px;flex-shrink:0}
+.score-track2{flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.score-fill2{height:100%;border-radius:3px;transition:width 1s ease}
+.score-val2{font-family:'JetBrains Mono',monospace;font-size:.7rem;width:30px;text-align:right}
+.verdict-badge2{font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:700;padding:.45rem .9rem;border-radius:8px;display:inline-flex;align-items:center;gap:.4rem;width:fit-content;margin-bottom:.85rem}
+.vh{background:rgba(0,255,136,.1);color:var(--green);border:1px solid rgba(0,255,136,.25)}
+.vw{background:rgba(251,146,60,.1);color:#FB923C;border:1px solid rgba(251,146,60,.25)}
+.vc{background:rgba(122,139,168,.1);color:var(--text-muted);border:1px solid rgba(122,139,168,.2)}
+.post-card2{background:rgba(0,0,0,.3);border:1px solid var(--border-card);border-radius:9px;padding:.85rem .95rem;margin-bottom:.55rem;font-size:.79rem;line-height:1.6;color:var(--text-muted)}
+.post-plat{font-family:'JetBrains Mono',monospace;font-size:.63rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.35rem}
+.ticket-row2{display:flex;align-items:flex-start;gap:.55rem;margin-bottom:.48rem;font-size:.8rem}
+.tkey{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text-dim);width:105px;flex-shrink:0;padding-top:.05rem}
+.tval{color:var(--text)}
+.dtable{width:100%;border-collapse:collapse;font-size:.76rem}
+.dtable th{font-family:'JetBrains Mono',monospace;font-size:.63rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;padding:.38rem .55rem;border-bottom:1px solid var(--border-card);text-align:left}
+.dtable td{padding:.4rem .55rem;border-bottom:1px solid rgba(255,255,255,.035);color:var(--text-muted);vertical-align:top}
+.dtable tr:last-child td{border-bottom:none}
+.flabel{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--text-dim);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.22rem}
+.pchips{display:flex;gap:.45rem;flex-wrap:wrap}
+.pchip2{font-size:.73rem;padding:.28rem .7rem;border-radius:20px;cursor:pointer;transition:all .2s;font-family:'JetBrains Mono',monospace;border:1px solid var(--border-card);color:var(--text-muted);background:rgba(0,0,0,.2)}
+.pchip2.active{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+@media(max-width:800px){
+  .iprojects-list{padding-left:1.5rem;padding-right:1.5rem}
+  .demo-area{grid-template-columns:1fr}
+  .demo-in{border-right:none;border-bottom:1px solid var(--border-card)}
+  .iproject-header{flex-direction:column;gap:.75rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Sumair<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#ai-demos">AI Live</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#interactive-projects">Showcase</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#blog">Writing</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<section>
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span class="avail-dot"></span> Available for freelance work</div>
+    <h1 class="hero-name">Sumair</h1>
+    <div class="hero-typewriter-line">I build <span class="typewriter-text" id="typewriter"></span><span class="cursor"></span></div>
+    <p class="hero-bio">AI Engineer and Automation Specialist with a focus on LLM-powered systems, intelligent chatbots, and end-to-end workflow automation. I turn complex AI capabilities into practical, revenue-generating tools for businesses.</p>
+    <div class="hero-actions">
+      <a href="#ai-demos" class="btn-primary">Try Live AI Demos</a>
+      <a href="#contact" class="btn-secondary">Start a Project</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">15<span>+</span></div><div class="stat-label">Projects Delivered</div></div>
+      <div><div class="stat-num">8<span>+</span></div><div class="stat-label">AI Tools Mastered</div></div>
+      <div><div class="stat-num">100<span>%</span></div><div class="stat-label">Client Satisfaction</div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="dw"><hr class="dl"></div>
+
+<section id="ai-demos" class="ai-demos-section">
+<div class="section-wrap">
+  <div class="section-label">Powered by Real AI</div>
+  <h2 class="section-title">Live AI Demos</h2>
+  <p class="section-sub">These are not mockups. Every demo runs a live AI model in real time — the same technology I build for clients.</p>
+  <div class="ai-demos-grid fade-in">
+
+    <div class="ai-panel">
+      <div class="panel-header">
+        <div class="panel-icon pi-blue">💬</div>
+        <div class="panel-header-text">
+          <div class="panel-title">AI Assistant</div>
+          <div class="panel-sub">Ask me anything about Sumair's work or services</div>
+        </div>
+        <div class="live-badge"><span class="live-dot"></span>Live LLM</div>
+      </div>
+      <div class="panel-body">
+        <div class="chat-messages" id="chat-messages">
+          <div class="msg bot">Hey! I'm Sumair's AI assistant. Ask me about his skills, past projects, pricing, or how he can help your business.</div>
+        </div>
+        <div class="suggestions">
+          <span class="chip" onclick="sendSugg('What services does Sumair offer?')">Services?</span>
+          <span class="chip" onclick="sendSugg('How much does a chatbot cost?')">Pricing?</span>
+          <span class="chip" onclick="sendSugg('What tools do you work with?')">Tech stack?</span>
+          <span class="chip" onclick="sendSugg('What is your typical timeline?')">Timeline?</span>
+        </div>
+        <div class="chat-input-row">
+          <input class="chat-input" id="chat-input" type="text" placeholder="Ask something..." onkeydown="if(event.key==='Enter')sendChat()">
+          <button class="chat-send" id="chat-btn" onclick="sendChat()">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-panel">
+      <div class="panel-header">
+        <div class="panel-icon pi-green">👁️</div>
+        <div class="panel-header-text">
+          <div class="panel-title">Computer Vision AI</div>
+          <div class="panel-sub">Upload any image — AI analyzes it instantly</div>
+        </div>
+        <div class="live-badge"><span class="live-dot"></span>Live Vision</div>
+      </div>
+      <div class="panel-body">
+        <div class="vision-drop" id="vision-drop" onclick="document.getElementById('vfile').click()">
+          <input type="file" id="vfile" accept="image/*" style="display:none" onchange="handleVFile(this)">
+          <div style="font-size:1.8rem">🖼️</div>
+          <p>Drop an image or click to upload</p>
+          <small>JPG, PNG, WEBP supported</small>
+        </div>
+        <div class="vision-preview" id="vision-preview">
+          <img id="vision-img" src="" alt="">
+          <div class="vision-result" id="vision-result">Upload an image to see AI analysis...</div>
+        </div>
+        <button class="ai-btn" id="vision-btn" onclick="analyzeVision()" style="display:none">Analyze with Vision AI</button>
+      </div>
+    </div>
+
+    <div class="ai-panel">
+      <div class="panel-header">
+        <div class="panel-icon pi-purple">🔍</div>
+        <div class="panel-header-text">
+          <div class="panel-title">NLP Skill Matcher</div>
+          <div class="panel-sub">Paste a job description — AI scores the match</div>
+        </div>
+        <div class="live-badge"><span class="live-dot"></span>Live NLP</div>
+      </div>
+      <div class="panel-body">
+        <textarea class="ai-textarea" id="nlp-input" placeholder="Paste a job description or project brief here...&#10;e.g. 'We need an AI chatbot with CRM integration and lead qualification for our sales team...'"></textarea>
+        <button class="ai-btn" id="nlp-btn" onclick="runNLP()">Analyze Skill Match</button>
+        <div class="nlp-result" id="nlp-result"></div>
+      </div>
+    </div>
+
+    <div class="ai-panel">
+      <div class="panel-header">
+        <div class="panel-icon pi-orange">✨</div>
+        <div class="panel-header-text">
+          <div class="panel-title">AI Brief Enhancer</div>
+          <div class="panel-sub">Rough idea → polished project brief in seconds</div>
+        </div>
+        <div class="live-badge"><span class="live-dot"></span>Live AI</div>
+      </div>
+      <div class="panel-body">
+        <textarea class="ai-textarea" id="brief-input" placeholder="Type your rough project idea...&#10;e.g. 'I want a bot that replies to customers and books appointments'"></textarea>
+        <button class="ai-btn purple" id="enhance-btn" onclick="enhanceBrief()">Enhance with AI</button>
+        <div class="brief-output" id="brief-output">
+          <div class="brief-label">AI-Enhanced Brief</div>
+          <div id="brief-text"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<div class="dw"><hr class="dl"></div>
+
+<section id="skills">
+<div class="section-wrap">
+  <div class="section-label">What I Work With</div>
+  <h2 class="section-title">Skills & Expertise</h2>
+  <p class="section-sub">From LLM fine-tuning to no-code automation pipelines — I work across the full AI engineering stack.</p>
+  <div class="grid-3 fade-in">
+    <div class="card"><div class="card-line"></div><div class="sk-icon">🤖</div><div class="sk-title">LLM Development & Integration</div><p class="sk-desc">Building, fine-tuning, and deploying large language models for production — RAG systems, prompt engineering, and chain-of-thought pipelines.</p><div class="tags"><span class="tag">LangChain</span><span class="tag">OpenAI API</span><span class="tag">RAG</span><span class="tag">Prompt Eng.</span></div></div>
+    <div class="card"><div class="card-line"></div><div class="sk-icon">💬</div><div class="sk-title">AI Chatbot Development</div><p class="sk-desc">Intelligent conversational agents with custom knowledge bases, multi-turn memory, and seamless CRM or backend integrations.</p><div class="tags"><span class="tag">Voiceflow</span><span class="tag">Flowise</span><span class="tag">Botpress</span><span class="tag">Custom Agents</span></div></div>
+    <div class="card"><div class="card-line"></div><div class="sk-icon">⚡</div><div class="sk-title">Workflow Automation</div><p class="sk-desc">Eliminating manual processes with intelligent automation — from lead qualification to multi-step business workflows connecting dozens of tools.</p><div class="tags"><span class="tag">Make.com</span><span class="tag">n8n</span><span class="tag">Zapier</span><span class="tag">APIs</span></div></div>
+    <div class="card"><div class="card-line"></div><div class="sk-icon">🐍</div><div class="sk-title">Python & NLP Engineering</div><p class="sk-desc">Python-first AI systems — NLP pipelines, signal processing, ML model deployment, and speech feature extraction using MFCCs.</p><div class="tags"><span class="tag">Python</span><span class="tag">NLP</span><span class="tag">MFCC</span><span class="tag">scikit-learn</span></div></div>
+    <div class="card"><div class="card-line"></div><div class="sk-icon">🔗</div><div class="sk-title">CRM & Data Automation</div><p class="sk-desc">Automating sales and marketing workflows with CRM integrations, data hygiene pipelines, and real-time sync between business tools.</p><div class="tags"><span class="tag">HubSpot</span><span class="tag">Airtable</span><span class="tag">Notion</span><span class="tag">Google Sheets</span></div></div>
+    <div class="card"><div class="card-line"></div><div class="sk-icon">🧠</div><div class="sk-title">AI Strategy & Consulting</div><p class="sk-desc">Identifying high-ROI automation opportunities, selecting the right AI tools, and designing implementation roadmaps that actually ship.</p><div class="tags"><span class="tag green">AI Audits</span><span class="tag green">Roadmapping</span><span class="tag green">Tool Selection</span></div></div>
+  </div>
+</div>
+</section>
+
+<div class="dw"><hr class="dl"></div>
+
+<section id="projects" class="alt-bg">
+<div class="section-wrap">
+  <div class="section-label">Selected Work</div>
+  <h2 class="section-title">Projects & Case Studies</h2>
+  <p class="section-sub">Real systems built for real outcomes — each project focused on measurable impact.</p>
+  <div class="grid-2 fade-in">
+    <div class="card" style="display:flex;flex-direction:column;gap:.55rem"><div class="card-line"></div><div class="pj-type">AI Chatbot · LangChain · Flowise</div><div class="pj-title">Multi-Channel AI Support Agent</div><p class="pj-desc">AI support agent for an e-commerce brand handling 300+ daily inquiries. Custom product knowledge base via RAG, with handoff logic and full Shopify order lookup.</p><div class="tags"><span class="tag">Flowise</span><span class="tag">LangChain</span><span class="tag">Shopify API</span><span class="tag">RAG</span></div><div class="outcome">87% ticket deflection rate</div></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:.55rem"><div class="card-line"></div><div class="pj-type">Workflow Automation · Make.com</div><div class="pj-title">CRM Automation Suite</div><p class="pj-desc">Fully automated lead management pipeline for a B2B SaaS company — AI scoring, CRM entry, personalized email sequences, and Slack alerts for high-intent prospects.</p><div class="tags"><span class="tag">Make.com</span><span class="tag">HubSpot</span><span class="tag">OpenAI</span><span class="tag">Gmail</span></div><div class="outcome">14 hours/week saved for sales team</div></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:.55rem"><div class="card-line"></div><div class="pj-type">SaaS · Python · AI</div><div class="pj-title">SmartStock — Inventory Intelligence</div><p class="pj-desc">AI-powered inventory management SaaS for SMEs. ML-based demand forecasting, reorder automation, and a dashboard built for non-technical business owners.</p><div class="tags"><span class="tag">Python</span><span class="tag">ML</span><span class="tag">FastAPI</span><span class="tag">React</span></div><div class="outcome">40% overstock reduction in pilot</div></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:.55rem"><div class="card-line"></div><div class="pj-type">Automation · n8n · NLP</div><div class="pj-title">AI-Powered CRM Data Hygiene System</div><p class="pj-desc">Automated pipeline to detect and correct duplicate, incomplete, and stale CRM records using LLM-based classification. Processed 10,000+ records without manual review.</p><div class="tags"><span class="tag">n8n</span><span class="tag">OpenAI</span><span class="tag">PostgreSQL</span><span class="tag">Python</span></div><div class="outcome">63% reduction in dirty data</div></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:.55rem"><div class="card-line"></div><div class="pj-type">Voice AI · Voiceflow</div><div class="pj-title">Voice-Enabled Appointment Booking Bot</div><p class="pj-desc">Voice-capable booking assistant for a private clinic. Handles scheduling, rescheduling, and reminders across WhatsApp and web, integrated with Google Calendar.</p><div class="tags"><span class="tag">Voiceflow</span><span class="tag">WhatsApp API</span><span class="tag">Google Calendar</span></div><div class="outcome">No-show rate cut by 35%</div></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:.55rem"><div class="card-line"></div><div class="pj-type">NLP · Python · Signal Processing</div><div class="pj-title">Speech Feature Extraction Pipeline</div><p class="pj-desc">End-to-end pipeline for speech classification using MFCC feature extraction, cepstrum analysis, and IIR/FIR filters. Real-time phoneme classification via bilinear transform techniques.</p><div class="tags"><span class="tag">Python</span><span class="tag">MFCC</span><span class="tag">NLP</span><span class="tag">scipy</span></div><div class="outcome">94.2% classification accuracy</div></div>
+  </div>
+</div>
+</section>
+
+<div class="dw"><hr class="dl"></div>
+
+<!-- INTERACTIVE AI AUTOMATION PROJECTS -->
+<section id="interactive-projects">
+<div class="section-wrap" style="padding-bottom:2rem">
+  <div class="section-label">Live & Interactive</div>
+  <h2 class="section-title">Top 5 AI Automation Projects</h2>
+  <p class="section-sub">The most in-demand AI automation systems on the market — each one fully interactive. Try them yourself.</p>
+</div>
+<div class="iprojects-list">
+
+  <!-- PROJECT 1: LEAD QUALIFIER -->
+  <div class="iproject-block">
+    <div class="iproject-header">
+      <div class="iprojicon" style="background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.2)">🎯</div>
+      <div class="iproject-header-text">
+        <div class="ipnum">01 / 05</div>
+        <div class="iptitle">AI Lead Qualification Engine</div>
+        <div class="ipdesc">Automatically scores and qualifies inbound leads using AI. Analyses company size, budget signals, intent language, and fit criteria — then routes hot leads to sales instantly. Replaces hours of manual SDR work.</div>
+        <div class="ipmeta">
+          <span class="tag tag-blue">LangChain</span><span class="tag tag-blue">Make.com</span><span class="tag tag-blue">HubSpot API</span><span class="tag tag-green2">OpenAI GPT-4</span><span class="stat-pill">↑ 3x pipeline velocity</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-area">
+      <div class="demo-in">
+        <div class="dcol-label in-lbl">Lead Input</div>
+        <div><div class="flabel">Company & Role</div><input class="dinput" id="lq-company" value="TechFlow Inc — Head of Operations, 45 employees"></div>
+        <div><div class="flabel">Their Message</div><textarea class="dtextarea" id="lq-message" style="min-height:90px">Hi, we're struggling to manage our customer support volume — we get about 500 tickets/day and our team is overwhelmed. We've been looking at AI solutions and have a budget approved for Q3. Can you help us automate this?</textarea></div>
+        <button class="irun-btn rbtn-blue" id="lq-btn" onclick="ipRunLeadQ()">Qualify Lead with AI</button>
+      </div>
+      <div class="demo-out">
+        <div class="dcol-label out-lbl">AI Qualification Result</div>
+        <div id="lq-out" class="obox empty" data-ph="Score and verdict will appear here..."></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 2: EMAIL RESPONDER -->
+  <div class="iproject-block">
+    <div class="iproject-header">
+      <div class="iprojicon" style="background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.2)">✉️</div>
+      <div class="iproject-header-text">
+        <div class="ipnum">02 / 05</div>
+        <div class="iptitle">AI Email Response Automation</div>
+        <div class="ipdesc">Reads incoming emails, understands context and intent, and drafts professional replies matched to your brand tone. Handles sales inquiries, support requests, partnership emails, and follow-ups autonomously.</div>
+        <div class="ipmeta">
+          <span class="tag tag-green2">n8n</span><span class="tag tag-green2">Gmail API</span><span class="tag tag-green2">OpenAI</span><span class="tag tag-blue">Zapier</span><span class="stat-pill">↑ 80% inbox handled automatically</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-area">
+      <div class="demo-in">
+        <div class="dcol-label in-lbl">Incoming Email</div>
+        <div><div class="flabel">Reply Tone</div><select class="dselect" id="er-tone"><option value="professional">Professional & Formal</option><option value="friendly">Friendly & Conversational</option><option value="concise">Concise & Direct</option></select></div>
+        <textarea class="dtextarea" id="er-email" style="min-height:110px">Subject: Interested in AI chatbot for our e-commerce store
+
+Hi, I came across your profile and I'm interested in building an AI chatbot for our Shopify store. We get around 200 customer queries per day. What would this cost and how long would it take?
+
+Best, James</textarea>
+        <button class="irun-btn rbtn-green" id="er-btn" onclick="ipRunEmail()">Generate AI Reply</button>
+      </div>
+      <div class="demo-out">
+        <div class="dcol-label out-lbl">AI Draft Reply</div>
+        <div id="er-out" class="obox empty" data-ph="AI-drafted reply will appear here..."></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 3: SOCIAL MEDIA -->
+  <div class="iproject-block">
+    <div class="iproject-header">
+      <div class="iprojicon" style="background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.2)">📱</div>
+      <div class="iproject-header-text">
+        <div class="ipnum">03 / 05</div>
+        <div class="iptitle">AI Social Media Content Engine</div>
+        <div class="ipdesc">Generates platform-optimised posts for LinkedIn, Twitter/X, and Instagram from a single topic. Adapts tone, format, hashtags, and length for each platform — then schedules via automation.</div>
+        <div class="ipmeta">
+          <span class="tag tag-purple2">Make.com</span><span class="tag tag-purple2">Buffer API</span><span class="tag tag-purple2">OpenAI</span><span class="tag tag-blue">Airtable</span><span class="stat-pill">↑ 10x content output</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-area">
+      <div class="demo-in">
+        <div class="dcol-label in-lbl">Content Brief</div>
+        <div><div class="flabel">Topic</div><input class="dinput" id="sm-topic" value="How AI automation saves businesses 20+ hours per week"></div>
+        <div><div class="flabel">Platforms</div><div class="pchips"><div class="pchip2 active" data-p="LinkedIn" onclick="this.classList.toggle('active')">LinkedIn</div><div class="pchip2 active" data-p="Twitter/X" onclick="this.classList.toggle('active')">Twitter/X</div><div class="pchip2" data-p="Instagram" onclick="this.classList.toggle('active')">Instagram</div></div></div>
+        <div><div class="flabel">Brand Voice</div><select class="dselect" id="sm-voice"><option value="thought leader">Thought Leader</option><option value="casual and relatable">Casual & Relatable</option><option value="data-driven and analytical">Data-Driven</option></select></div>
+        <button class="irun-btn rbtn-purple" id="sm-btn" onclick="ipRunSocial()">Generate Posts</button>
+      </div>
+      <div class="demo-out">
+        <div class="dcol-label out-lbl">Generated Posts</div>
+        <div id="sm-out" class="obox empty" data-ph="Platform-optimised posts will appear here..."></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 4: TICKET CLASSIFIER -->
+  <div class="iproject-block">
+    <div class="iproject-header">
+      <div class="iprojicon" style="background:rgba(251,146,60,.08);border:1px solid rgba(251,146,60,.2)">🎫</div>
+      <div class="iproject-header-text">
+        <div class="ipnum">04 / 05</div>
+        <div class="iptitle">AI Support Ticket Classifier & Router</div>
+        <div class="ipdesc">Reads incoming support tickets, classifies by category and urgency, extracts key details, suggests a resolution, and routes to the right team — within seconds of ticket creation. Zero manual triage.</div>
+        <div class="ipmeta">
+          <span class="tag tag-orange2">n8n</span><span class="tag tag-orange2">Zendesk API</span><span class="tag tag-orange2">OpenAI</span><span class="tag tag-blue">Slack</span><span class="stat-pill">↑ 70% faster first response</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-area">
+      <div class="demo-in">
+        <div class="dcol-label in-lbl">Customer Ticket</div>
+        <textarea class="dtextarea" id="tc-ticket" style="min-height:115px">I placed an order 6 days ago (Order #48821) and it still hasn't arrived. The tracking page has said "in transit" for 4 days. I need this for an event this weekend — if it doesn't arrive by Friday I want a full refund. This is unacceptable.</textarea>
+        <div><div class="flabel">Business Type</div><select class="dselect" id="tc-type"><option value="e-commerce">E-Commerce</option><option value="SaaS software">SaaS / Software</option><option value="healthcare clinic">Healthcare</option><option value="financial services">Financial Services</option></select></div>
+        <button class="irun-btn rbtn-orange" id="tc-btn" onclick="ipRunTicket()">Classify & Route Ticket</button>
+      </div>
+      <div class="demo-out">
+        <div class="dcol-label out-lbl">AI Classification Result</div>
+        <div id="tc-out" class="obox empty" data-ph="Ticket analysis will appear here..."></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 5: DATA EXTRACTOR -->
+  <div class="iproject-block" style="margin-bottom:2rem">
+    <div class="iproject-header">
+      <div class="iprojicon" style="background:rgba(244,114,182,.08);border:1px solid rgba(244,114,182,.2)">📊</div>
+      <div class="iproject-header-text">
+        <div class="ipnum">05 / 05</div>
+        <div class="iptitle">AI Document & Data Extractor</div>
+        <div class="ipdesc">Parses unstructured documents, emails, or raw text and extracts clean structured data — invoices, contracts, lead forms, receipts. Output flows directly into spreadsheets, CRMs, or databases with zero manual entry.</div>
+        <div class="ipmeta">
+          <span class="tag tag-pink2">Make.com</span><span class="tag tag-pink2">OpenAI</span><span class="tag tag-pink2">Google Sheets API</span><span class="tag tag-blue">Airtable</span><span class="stat-pill">↑ 95% data entry eliminated</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-area">
+      <div class="demo-in">
+        <div class="dcol-label in-lbl">Raw Document / Text</div>
+        <div><div class="flabel">Document Type</div><select class="dselect" id="de-type" onchange="ipLoadDeEx()"><option value="invoice">Invoice</option><option value="contract">Contract Clause</option><option value="lead form">Lead Form</option><option value="receipt">Expense Receipt</option></select></div>
+        <textarea class="dtextarea" id="de-text" style="min-height:130px">INVOICE #INV-2024-0892
+Date: June 14, 2026 | Due: June 28, 2026
+From: Creative Studio Ltd, London, VAT: GB 234 5678 90
+To: Acme Corporation, Manchester
+
+- Brand Identity Design: $2,400.00
+- Website UI/UX (3 pages): $1,800.00
+- Logo variations x5: $600.00
+
+Subtotal: $4,800 | VAT (20%): $960 | TOTAL: $5,760.00
+Bank: Sort Code 20-00-00, Account 12345678</textarea>
+        <button class="irun-btn rbtn-pink" id="de-btn" onclick="ipRunExtract()">Extract Structured Data</button>
+      </div>
+      <div class="demo-out">
+        <div class="dcol-label out-lbl">Extracted Data</div>
+        <div id="de-out" class="obox empty" data-ph="Structured fields will appear here..."></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<div class="dw"><hr class="dl"></div>
+
+<section id="testimonials">
+<div class="section-wrap">
+  <div class="section-label">Social Proof</div>
+  <h2 class="section-title">What Clients Say</h2>
+  <p class="section-sub">Outcomes that speak louder than promises.</p>
+  <div class="grid-3 fade-in">
+    <div class="card"><div class="card-line"></div><div class="stars">★★★★★</div><div class="qmark">"</div><p class="ttext">Sumair built us an AI support bot that handled the majority of our customer tickets before a human ever saw them. The RAG setup was clean, the handoff logic was smart, and the delivery was fast.</p><div class="author-row"><div class="avatar">AM</div><div><div class="aname">Ahmed M.</div><div class="arole">Founder, E-commerce Brand · Dubai</div></div></div></div>
+    <div class="card"><div class="card-line"></div><div class="stars">★★★★★</div><div class="qmark">"</div><p class="ttext">The CRM automation eliminated an entire manual process we'd lived with for 2 years. Our sales team now gets notified the moment a high-value lead hits a score threshold. ROI was clear within the first week.</p><div class="author-row"><div class="avatar">SR</div><div><div class="aname">Sara R.</div><div class="arole">Head of Sales, B2B SaaS · UK</div></div></div></div>
+    <div class="card"><div class="card-line"></div><div class="stars">★★★★★</div><div class="qmark">"</div><p class="ttext">He understood the technical requirements immediately and didn't need hand-holding. The Voiceflow bot works across WhatsApp and our website flawlessly. Communication was professional throughout.</p><div class="author-row"><div class="avatar">NK</div><div><div class="aname">Dr. N. Khan</div><div class="arole">Medical Director, Private Clinic · Islamabad</div></div></div></div>
+    <div class="card"><div class="card-line"></div><div class="stars">★★★★★</div><div class="qmark">"</div><p class="ttext">Hired him to audit our existing automations and rebuild the messy parts. He found three bottlenecks we didn't even know existed and fixed them without disrupting active workflows.</p><div class="author-row"><div class="avatar">JL</div><div><div class="aname">James L.</div><div class="arole">Operations Manager · Australia</div></div></div></div>
+    <div class="card"><div class="card-line"></div><div class="stars">★★★★★</div><div class="qmark">"</div><p class="ttext">The LangChain integration was more complex than expected but Sumair handled it and kept me updated at every step. The final chatbot exceeded scope — it's a core part of our product now.</p><div class="author-row"><div class="avatar">PT</div><div><div class="aname">Priya T.</div><div class="arole">Product Lead, EdTech Startup · India</div></div></div></div>
+    <div class="card"><div class="card-line"></div><div class="stars">★★★★★</div><div class="qmark">"</div><p class="ttext">Solid technical knowledge, fast turnaround, and clear communication. He built exactly what was described, on time, and was proactive about edge cases I hadn't thought about. Will hire again.</p><div class="author-row"><div class="avatar">MB</div><div><div class="aname">Mark B.</div><div class="arole">Founder, Marketing Agency · USA</div></div></div></div>
+  </div>
+</div>
+</section>
+
+<div class="dw"><hr class="dl"></div>
+
+<section id="process" class="alt-bg">
+<div class="section-wrap">
+  <div class="section-label">How I Work</div>
+  <h2 class="section-title">My Process</h2>
+  <p class="section-sub">Structured, async-friendly, and outcome-driven from day one.</p>
+  <div class="process-grid fade-in">
+    <div class="card"><div class="card-line"></div><div class="snum">01 — Discovery</div><div class="stitle">Understand the Problem</div><p class="sdesc">I start by understanding your business workflow, pain points, and success metrics — not just your feature wishlist.</p></div>
+    <div class="card"><div class="card-line"></div><div class="snum">02 — Scope</div><div class="stitle">Define & Propose</div><p class="sdesc">Clear proposal with timeline, tech stack, deliverables, and pricing — no ambiguity. You know exactly what you're getting and when.</p></div>
+    <div class="card"><div class="card-line"></div><div class="snum">03 — Build</div><div class="stitle">Build with Updates</div><p class="sdesc">Daily or milestone-based progress updates. I flag risks early and document everything as I go.</p></div>
+    <div class="card"><div class="card-line"></div><div class="snum">04 — Deliver</div><div class="stitle">Test, Hand Off & Support</div><p class="sdesc">Full testing, clean documentation, and a walkthrough session. 7-day post-delivery support included.</p></div>
+  </div>
+</div>
+</section>
+
+<div class="dw"><hr class="dl"></div>
+
+<section id="blog">
+<div class="section-wrap">
+  <div class="section-label">Thoughts & Insights</div>
+  <h2 class="section-title">Writing</h2>
+  <p class="section-sub">AI, automation, geopolitics, and the systems shaping the world — explored through a structured lens.</p>
+  <div class="grid-3 fade-in">
+    <div class="card" style="cursor:pointer"><div class="card-line"></div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem"><span class="bcat">AI Engineering</span><span class="bdate">Jun 2026</span></div><div class="btitle">Why RAG Is Overkill for Most Chatbot Projects</div><p class="bexcerpt">A practical decision framework for choosing the right knowledge retrieval approach for your chatbot's actual use case.</p><div class="bread">Read article →</div></div>
+    <div class="card" style="cursor:pointer"><div class="card-line"></div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem"><span class="bcat">Automation</span><span class="bdate">Jun 2026</span></div><div class="btitle">Make.com vs n8n vs Zapier: Which Fits Your Business?</div><p class="bexcerpt">A no-hype comparison of the three major workflow automation platforms — with real project context and a clear recommendation matrix.</p><div class="bread">Read article →</div></div>
+    <div class="card" style="cursor:pointer"><div class="card-line"></div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem"><span class="bcat">AI x Geopolitics</span><span class="bdate">May 2026</span></div><div class="btitle">How AI Is Rewiring Geopolitical Leverage</div><p class="bexcerpt">Semiconductor supply chains, LLM sovereignty, and the quiet battle for AI infrastructure dominance — a systems-level analysis.</p><div class="bread">Read article →</div></div>
+  </div>
+</div>
+</section>
+
+<div class="dw"><hr class="dl"></div>
+
+<section id="contact" class="alt-bg">
+<div class="section-wrap">
+  <div class="section-label">Get in Touch</div>
+  <h2 class="section-title">Start a Project</h2>
+  <p class="section-sub">Have an automation challenge or AI project in mind? Let's talk about what's possible.</p>
+  <div class="contact-layout">
+    <div class="contact-info">
+      <h3>What I'm open to</h3>
+      <p>AI chatbot development, workflow automation, LLM integrations, and AI consulting engagements. I work remotely with clients globally.</p>
+      <div class="clinks">
+        <a href="mailto:sumair2424@gmail.com" class="clink"><div class="cicon">✉️</div>sumair2424@gmail.com</a>
+        <a href="https://www.linkedin.com/in/sumair-ul-hassan-065544260" class="clink" target="_blank"><div class="cicon" style="font-family:serif;font-weight:700;font-size:.85rem">in</div>linkedin.com/in/sumair-ul-hassan</a>
+        <a class="clink"><div class="cicon">📍</div>Islamabad, Pakistan · Remote Worldwide</a>
+      </div>
+    </div>
+    <div class="cform">
+      <div class="form-row">
+        <div class="fg"><label>Your Name</label><input type="text" placeholder="John Smith" id="cf-name"></div>
+        <div class="fg"><label>Email Address</label><input type="email" placeholder="john@company.com" id="cf-email"></div>
+      </div>
+      <div class="fg"><label>Project Type</label><select id="cf-type"><option value="" disabled selected>Select a service...</option><option>AI Chatbot Development</option><option>Workflow Automation</option><option>LLM Integration</option><option>CRM Automation</option><option>AI Strategy / Consulting</option><option>Other</option></select></div>
+      <div class="fg"><label>Budget Range</label><select id="cf-budget"><option value="" disabled selected>Approximate budget...</option><option>Under $500</option><option>$500 - $1,500</option><option>$1,500 - $5,000</option><option>$5,000+</option></select></div>
+      <div class="fg"><label>Tell Me About Your Project</label><textarea placeholder="What problem are you trying to solve? What does success look like?" id="cf-message"></textarea></div>
+      <button class="form-submit" onclick="handleSubmit()">Send Message</button>
+      <p class="form-note">Usually responds within 24 hours</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer>
+  <p>2026 Sumair · AI Engineer & Automation Specialist</p>
+  <div class="flinks">
+    <a href="#ai-demos">AI Demos</a>
+    <a href="#interactive-projects">Showcase</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#blog">Writing</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<div class="toast" id="toast"><span class="toast-icon">✓</span> Message sent! I'll get back to you within 24 hours.</div>
+
+<script>
+const roles=['AI chatbots.','automation systems.','LLM pipelines.','NLP solutions.','intelligent workflows.'];
+let ri=0,ci=0,del=false;
+const tel=document.getElementById('typewriter');
+function type(){
+  const cur=roles[ri];
+  if(!del){tel.textContent=cur.slice(0,++ci);if(ci===cur.length){del=true;setTimeout(type,1900);return}}
+  else{tel.textContent=cur.slice(0,--ci);if(ci===0){del=false;ri=(ri+1)%roles.length}}
+  setTimeout(type,del?42:78);
+}
+type();
+
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:0.08});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+async function callClaude(messages,system,maxTok=500){
+  const body={model:'claude-sonnet-4-6',max_tokens:maxTok,messages};
+  if(system)body.system=system;
+  const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const data=await res.json();
+  return(data.content||[]).map(b=>b.text||'').join('');
+}
+
+const chatHist=[];
+const SYS=`You are Sumair's AI assistant on his portfolio website. Sumair is an AI Engineer and Automation Specialist in Islamabad, Pakistan.
+Skills: LLM development, LangChain, RAG, OpenAI API, chatbot dev (Flowise, Voiceflow, Botpress), workflow automation (n8n, Make.com, Zapier), Python, NLP, signal processing, CRM automation (HubSpot, Airtable), FastAPI, AI consulting.
+Projects: AI support agent (87% ticket deflection), CRM automation (14hrs/week saved), SmartStock inventory SaaS, CRM data hygiene system, voice booking bot, speech NLP pipeline.
+Pricing: small automations $300-800, chatbots $500-2000, complex systems $2000-5000+. Timeline: simple 3-7 days, complex 2-4 weeks.
+Contact: sumair2424@gmail.com. Available for freelance work globally.
+Be concise (under 110 words), helpful, professional. Don't invent facts not listed here.`;
+
+async function sendChat(){
+  const inp=document.getElementById('chat-input'),val=inp.value.trim();
+  if(!val)return;
+  addMsg(val,'user');inp.value='';
+  document.getElementById('chat-btn').disabled=true;
+  const th=addMsg('Thinking...','bot thinking');
+  chatHist.push({role:'user',content:val});
+  try{
+    const reply=await callClaude([...chatHist],SYS,280);
+    th.remove();addMsg(reply,'bot');
+    chatHist.push({role:'assistant',content:reply});
+  }catch(e){th.remove();addMsg('Sorry, something went wrong. Try again.','bot');}
+  document.getElementById('chat-btn').disabled=false;
+}
+function sendSugg(t){document.getElementById('chat-input').value=t;sendChat();}
+function addMsg(text,cls){
+  const box=document.getElementById('chat-messages'),div=document.createElement('div');
+  div.className='msg '+cls;div.textContent=text;box.appendChild(div);box.scrollTop=box.scrollHeight;return div;
+}
+
+let vFile=null;
+function handleVFile(input){
+  const file=input.files[0];if(!file)return;vFile=file;
+  const r=new FileReader();
+  r.onload=e=>{
+    document.getElementById('vision-img').src=e.target.result;
+    document.getElementById('vision-drop').style.display='none';
+    const p=document.getElementById('vision-preview');p.style.display='flex';
+    document.getElementById('vision-result').textContent='Click Analyze to run vision AI...';
+    document.getElementById('vision-btn').style.display='block';
+  };r.readAsDataURL(file);
+}
+async function analyzeVision(){
+  if(!vFile)return;
+  const btn=document.getElementById('vision-btn'),result=document.getElementById('vision-result');
+  btn.disabled=true;btn.textContent='Analyzing...';
+  result.className='vision-result loading';result.textContent='Running vision model...';
+  const r=new FileReader();
+  r.onload=async e=>{
+    const b64=e.target.result.split(',')[1],mime=vFile.type||'image/jpeg';
+    try{
+      const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:350,messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:mime,data:b64}},{type:'text',text:'Analyze this image in 3-4 sentences. Describe what you see, key objects or subjects, the scene context, and any notable details. Be specific.'}]}]})});
+      const data=await res.json();
+      result.className='vision-result';result.textContent=(data.content||[]).map(b=>b.text||'').join('')||'Analysis unavailable.';
+    }catch{result.className='vision-result';result.textContent='Analysis failed. Try another image.';}
+    btn.disabled=false;btn.textContent='Analyze again';
+  };r.readAsDataURL(vFile);
+}
+const vd=document.getElementById('vision-drop');
+vd.addEventListener('dragover',e=>{e.preventDefault();vd.classList.add('over')});
+vd.addEventListener('dragleave',()=>vd.classList.remove('over'));
+vd.addEventListener('drop',e=>{
+  e.preventDefault();vd.classList.remove('over');
+  const f=e.dataTransfer.files[0];
+  if(f&&f.type.startsWith('image/')){const dt=new DataTransfer();dt.items.add(f);const fi=document.getElementById('vfile');fi.files=dt.files;handleVFile(fi);}
+});
+
+async function runNLP(){
+  const text=document.getElementById('nlp-input').value.trim();
+  if(text.length<20){alert('Please paste a job description first.');return;}
+  const btn=document.getElementById('nlp-btn'),result=document.getElementById('nlp-result');
+  btn.disabled=true;btn.textContent='Analyzing...';result.className='nlp-result';result.innerHTML='';
+  const prompt=`Analyze this job description and score how well Sumair's skills match it.
+Sumair's skills: LLM development, LangChain, RAG, OpenAI API, chatbot development (Flowise, Voiceflow, Botpress), workflow automation (n8n, Make.com, Zapier), Python, NLP, MFCC signal processing, CRM automation (HubSpot, Airtable), API integrations, FastAPI, AI consulting.
+Job description: "${text}"
+Return ONLY valid JSON, no markdown or explanation:
+{"scores":{"LLM / LangChain / RAG":85,"Chatbot Development":90,"n8n / Make.com / Zapier":70,"Python / NLP":80,"CRM Integration":60,"AI Strategy":75},"summary":"One sentence describing the match quality","verdict":"Strong Match"}
+Adjust all scores 0-100 based on relevance to the job. Verdict must be: Strong Match, Partial Match, or Low Match.`;
+  try{
+    const raw=await callClaude([{role:'user',content:prompt}],null,400);
+    const parsed=JSON.parse(raw.replace(/```json|```/g,'').trim());
+    const vc=parsed.verdict==='Strong Match'?'var(--green)':parsed.verdict==='Partial Match'?'var(--accent)':'var(--text-muted)';
+    let html=`<div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.86rem;color:${vc};margin-bottom:.5rem">${parsed.verdict}</div>`;
+    html+=`<div style="font-size:.8rem;color:var(--text-muted);margin-bottom:.9rem">${parsed.summary}</div>`;
+    for(const[k,v]of Object.entries(parsed.scores))html+=`<div class="match-bar"><div class="match-label">${k}</div><div class="match-track"><div class="match-fill" style="width:0%" data-w="${v}%"></div></div><div class="match-pct">${v}%</div></div>`;
+    result.innerHTML=html;result.className='nlp-result show';
+    setTimeout(()=>result.querySelectorAll('.match-fill').forEach(el=>el.style.width=el.dataset.w),50);
+  }catch(e){result.innerHTML='<span style="color:var(--text-dim)">Could not parse result. Try again.</span>';result.className='nlp-result show';}
+  btn.disabled=false;btn.textContent='Analyze Skill Match';
+}
+
+async function enhanceBrief(){
+  const text=document.getElementById('brief-input').value.trim();
+  if(text.length<10){alert('Please enter your project idea first.');return;}
+  const btn=document.getElementById('enhance-btn'),out=document.getElementById('brief-output'),ot=document.getElementById('brief-text');
+  btn.disabled=true;btn.textContent='Enhancing...';out.className='brief-output';ot.textContent='';
+  const prompt=`Transform this rough project idea into a professional project brief in 4-5 sentences. Include: the problem, the proposed AI/automation solution, key features needed, and expected outcome. Write only the brief, no labels.
+Idea: "${text}"`;
+  try{
+    const reply=await callClaude([{role:'user',content:prompt}],null,280);
+    ot.textContent=reply;out.className='brief-output show';
+  }catch{ot.textContent='Enhancement failed. Please try again.';out.className='brief-output show';}
+  btn.disabled=false;btn.textContent='Enhance with AI';
+}
+
+function handleSubmit(){
+  const n=document.getElementById('cf-name').value.trim(),e=document.getElementById('cf-email').value.trim(),m=document.getElementById('cf-message').value.trim();
+  if(!n||!e||!m){alert('Please fill in your name, email, and message.');return;}
+  const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4500);
+  document.getElementById('cf-name').value='';document.getElementById('cf-email').value='';document.getElementById('cf-message').value='';
+}
+
+// ── INTERACTIVE PROJECTS ──────────────────────────────────
+function ipLoad(id,btn){const el=document.getElementById(id);el.className='obox loading';el.innerHTML='';document.getElementById(btn).disabled=true;}
+function ipSet(id,btn,html){const el=document.getElementById(id);el.className='obox active';el.innerHTML=html;document.getElementById(btn).disabled=false;}
+
+async function ipRunLeadQ(){
+  ipLoad('lq-out','lq-btn');
+  const co=document.getElementById('lq-company').value,msg=document.getElementById('lq-message').value;
+  const p=`Analyze this sales lead and return ONLY valid JSON, no markdown.\nCompany/Role: "${co}"\nMessage: "${msg}"\n{"verdict":"Hot Lead","scores":{"Budget Signal":88,"Urgency":75,"Fit":90,"Authority":70,"Problem Clarity":95},"summary":"2-sentence summary","next_action":"Specific action","risk":"red flag or none"}\nScores 0-100. Verdict: Hot Lead, Warm Lead, or Cold Lead.`;
+  try{
+    const raw=await callClaude([{role:'user',content:p}],null,380);
+    const d=JSON.parse(raw.replace(/```json|```/g,'').trim());
+    const vc=d.verdict==='Hot Lead'?'vh':d.verdict==='Warm Lead'?'vw':'vc';
+    const cols={'Budget Signal':'#00D4FF','Urgency':'#FB923C','Fit':'#00FF88','Authority':'#A855F7','Problem Clarity':'#F472B6'};
+    let h=`<div class="verdict-badge2 ${vc}">● ${d.verdict}</div><div class="score-display2">`;
+    for(const[k,v]of Object.entries(d.scores))h+=`<div class="score-row2"><div class="score-lbl2">${k}</div><div class="score-track2"><div class="score-fill2" style="width:0%;background:${cols[k]||'var(--accent)'}" data-w="${v}%"></div></div><div class="score-val2" style="color:${cols[k]||'var(--accent)'}">${v}</div></div>`;
+    h+=`</div><div style="margin-top:.8rem;font-size:.79rem;color:var(--text-muted);line-height:1.65">${d.summary}</div>`;
+    h+=`<div style="margin-top:.65rem;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--green);background:rgba(0,255,136,.06);border:1px solid rgba(0,255,136,.15);padding:.45rem .75rem;border-radius:6px">→ ${d.next_action}</div>`;
+    if(d.risk&&d.risk!=='none')h+=`<div style="margin-top:.45rem;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#FB923C;background:rgba(251,146,60,.06);border:1px solid rgba(251,146,60,.15);padding:.4rem .75rem;border-radius:6px">⚠ ${d.risk}</div>`;
+    ipSet('lq-out','lq-btn',h);
+    setTimeout(()=>document.querySelectorAll('#lq-out .score-fill2').forEach(el=>el.style.width=el.dataset.w),60);
+  }catch(e){ipSet('lq-out','lq-btn','<span style="color:var(--text-dim)">Could not parse result. Try again.</span>');}
+}
+
+async function ipRunEmail(){
+  ipLoad('er-out','er-btn');
+  const email=document.getElementById('er-email').value,tone=document.getElementById('er-tone').value;
+  const sys=`You are Sumair's AI email assistant. Sumair is an AI Engineer and Automation Specialist in Islamabad, Pakistan. He builds chatbots, workflow automations, and LLM systems for global clients. Pricing: chatbots $500-2000, automations $300-800, complex systems $2000-5000+. Timelines: 3-7 days simple, 2-4 weeks complex. He has Shopify experience. Contact: sumair2424@gmail.com`;
+  try{
+    const reply=await callClaude([{role:'user',content:`Draft a reply to this email in a ${tone} tone. Be specific and helpful. Sign off as Sumair.\n\n${email}`}],sys,420);
+    ipSet('er-out','er-btn',`<div style="white-space:pre-wrap;font-size:.8rem;line-height:1.7">${reply}</div>`);
+  }catch(e){ipSet('er-out','er-btn','<span style="color:var(--text-dim)">Error generating reply. Try again.</span>');}
+}
+
+async function ipRunSocial(){
+  ipLoad('sm-out','sm-btn');
+  const topic=document.getElementById('sm-topic').value,voice=document.getElementById('sm-voice').value;
+  const platforms=[...document.querySelectorAll('.pchip2.active')].map(el=>el.dataset.p);
+  if(!platforms.length){ipSet('sm-out','sm-btn','<span style="color:var(--text-dim)">Select at least one platform.</span>');return;}
+  const p=`Generate social media posts for: ${platforms.join(', ')}.\nTopic: "${topic}"\nVoice: ${voice}\nReturn ONLY valid JSON:\n{"posts":[{"platform":"LinkedIn","content":"post text","char_count":280}]}\nLinkedIn: 200-300 chars, 3-5 hashtags. Twitter/X: under 240 chars, 2-3 hashtags. Instagram: 150-200 chars, 5-8 hashtags. Only include requested platforms.`;
+  try{
+    const raw=await callClaude([{role:'user',content:p}],null,480);
+    const d=JSON.parse(raw.replace(/```json|```/g,'').trim());
+    const pc={'LinkedIn':'#0077B5','Twitter/X':'#1DA1F2','Instagram':'#E1306C'};
+    let h='';
+    for(const post of d.posts)h+=`<div class="post-card2"><div class="post-plat" style="color:${pc[post.platform]||'var(--accent)'}">${post.platform}</div><div style="white-space:pre-wrap">${post.content}</div><div style="margin-top:.4rem;font-family:'JetBrains Mono',monospace;font-size:.63rem;color:var(--text-dim)">${post.char_count} chars</div></div>`;
+    ipSet('sm-out','sm-btn',h);
+  }catch(e){ipSet('sm-out','sm-btn','<span style="color:var(--text-dim)">Error generating posts. Try again.</span>');}
+}
+
+async function ipRunTicket(){
+  ipLoad('tc-out','tc-btn');
+  const ticket=document.getElementById('tc-ticket').value,type=document.getElementById('tc-type').value;
+  const p=`Classify this support ticket for a ${type} business. Return ONLY valid JSON:\n"${ticket}"\n{"category":"Shipping & Delivery","priority":"High","sentiment":"Frustrated","urgency_score":88,"churn_risk":"High","summary":"one sentence","suggested_action":"specific step","route_to":"team name","auto_reply_snippet":"short empathetic opener"}`;
+  try{
+    const raw=await callClaude([{role:'user',content:p}],null,380);
+    const d=JSON.parse(raw.replace(/```json|```/g,'').trim());
+    const pc=d.priority==='High'||d.priority==='Critical'?'#FF4444':d.priority==='Medium'?'#FB923C':'#00FF88';
+    const cr=d.churn_risk==='High'?'#FF4444':d.churn_risk==='Medium'?'#FB923C':'#00FF88';
+    let h=`<div style="display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:.8rem"><span style="font-family:'JetBrains Mono',monospace;font-size:.68rem;background:var(--accent-dim);color:var(--accent);border:1px solid var(--border);padding:.2rem .6rem;border-radius:4px">${d.category}</span><span style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:${pc};background:rgba(255,68,68,.07);border:1px solid rgba(255,68,68,.2);padding:.2rem .6rem;border-radius:4px">${d.priority} Priority</span></div>`;
+    const rows=[['Sentiment',d.sentiment],['Urgency',`${d.urgency_score}/100`],['Churn Risk',`<span style="color:${cr}">${d.churn_risk}</span>`],['Route To',d.route_to],['Summary',d.summary]];
+    h+=`<div style="display:flex;flex-direction:column;gap:.38rem;margin-bottom:.75rem">`;
+    rows.forEach(([k,v])=>{h+=`<div class="ticket-row2"><div class="tkey">${k}</div><div class="tval">${v}</div></div>`;});
+    h+=`</div><div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);background:var(--accent-dim);border:1px solid var(--border);padding:.5rem .75rem;border-radius:6px;margin-bottom:.45rem">→ ${d.suggested_action}</div>`;
+    h+=`<div style="font-size:.76rem;color:var(--text-dim);font-style:italic;border-top:1px solid var(--border-card);padding-top:.55rem">"${d.auto_reply_snippet}"</div>`;
+    ipSet('tc-out','tc-btn',h);
+  }catch(e){ipSet('tc-out','tc-btn','<span style="color:var(--text-dim)">Error classifying. Try again.</span>');}
+}
+
+const ipDeEx={
+  invoice:`INVOICE #INV-2024-0892\nDate: June 14, 2026 | Due: June 28, 2026\nFrom: Creative Studio Ltd, London, VAT: GB 234 5678 90\nTo: Acme Corporation, Manchester\n\n- Brand Identity Design: $2,400.00\n- Website UI/UX (3 pages): $1,800.00\n- Logo variations x5: $600.00\n\nSubtotal: $4,800 | VAT (20%): $960 | TOTAL: $5,760.00\nBank: Sort Code 20-00-00, Account 12345678`,
+  contract:`CLAUSE 4.2 — INTELLECTUAL PROPERTY\nAll deliverables created by the Contractor shall be work-made-for-hire. Upon full payment, all IP rights transfer exclusively to Client, Acme Corporation (Co. No. 04521893). Contractor warrants Work Product is original and free of third-party rights. Governing law: England and Wales. Disputes: London arbitration.`,
+  'lead form':`Name: Sarah Mitchell | Title: Director of Marketing\nCompany: BrightSpark E-commerce | Size: 35 employees\nEmail: sarah.m@brightsparke.com | Phone: +44 7891 234567\nNeed: Automate customer support — ~300 Shopify tickets/day\nTimeline: ASAP, within 4 weeks | Budget: $2,000–$5,000\nSource: LinkedIn | Prior tools: Tried Tidio, wasn't smart enough`,
+  receipt:`EXPENSE RECEIPT — AWS (Amazon Web Services)\nDate: 15 June 2026 | Transaction: TXN-98234-UK\nEC2 t3.medium (720hrs): $33.84\nRDS PostgreSQL (720hrs): $15.12\nS3 Storage (145 GB): $3.34\nCloudFront CDN (2.1TB): $18.90\nLambda (4.2M invocations): $0.84\nTOTAL: $72.04 | Card ending 4521 | Purpose: AI chatbot production infra`
+};
+function ipLoadDeEx(){const t=document.getElementById('de-type').value;document.getElementById('de-text').value=ipDeEx[t]||'';}
+
+async function ipRunExtract(){
+  ipLoad('de-out','de-btn');
+  const text=document.getElementById('de-text').value,type=document.getElementById('de-type').value;
+  const p=`Extract all structured data from this ${type}. Return ONLY valid JSON, no markdown.\n"${text}"\nFor invoices: invoice_number,date,due_date,vendor,client,line_items,subtotal,tax,total,payment_details. For contracts: clause,parties,ip_transfer,governing_law,dispute_resolution. For lead forms: name,title,company,size,email,phone,need,timeline,budget,source,prior_tools. For receipts: date,merchant,transaction_id,line_items,total,card_last4,purpose.`;
+  try{
+    const raw=await callClaude([{role:'user',content:p}],null,480);
+    const d=JSON.parse(raw.replace(/```json|```/g,'').trim());
+    let h=`<table class="dtable"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody>`;
+    function flat(obj,pre=''){for(const[k,v]of Object.entries(obj)){const key=pre?`${pre}.${k}`:k;if(v!==null&&typeof v==='object'&&!Array.isArray(v)){flat(v,key);}else if(Array.isArray(v)){h+=`<tr><td style="color:var(--accent)">${key}</td><td style="color:var(--text-dim);font-size:.73rem">[${v.length} items]</td></tr>`;v.forEach((item,i)=>{if(typeof item==='object')flat(item,`${key}[${i}]`);else h+=`<tr><td style="color:var(--accent)">${key}[${i}]</td><td>${item}</td></tr>`;});}else if(v!==null){h+=`<tr><td style="color:var(--accent)">${key}</td><td>${v}</td></tr>`;}}}
+    flat(d);
+    h+=`</tbody></table><div style="margin-top:.65rem;font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--green)">✓ ${Object.keys(d).length} fields extracted — ready for CRM / Sheets export</div>`;
+    ipSet('de-out','de-btn',h);
+  }catch(e){ipSet('de-out','de-btn','<span style="color:var(--text-dim)">Error extracting data. Try again.</span>');}
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});
+});
+</script>
+</body>
+</html>
