@@ -833,10 +833,37 @@ Idea: "${text}"`;
 }
 
 function handleSubmit(){
-  const n=document.getElementById('cf-name').value.trim(),e=document.getElementById('cf-email').value.trim(),m=document.getElementById('cf-message').value.trim();
+  var n=document.getElementById('cf-name').value.trim();
+  var e=document.getElementById('cf-email').value.trim();
+  var m=document.getElementById('cf-message').value.trim();
+  var t=document.getElementById('cf-type').value;
+  var b=document.getElementById('cf-budget').value;
   if(!n||!e||!m){alert('Please fill in your name, email, and message.');return;}
-  const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4500);
-  document.getElementById('cf-name').value='';document.getElementById('cf-email').value='';document.getElementById('cf-message').value='';
+  var btn=document.querySelector('.form-submit');
+  btn.disabled=true;btn.textContent='Sending...';
+  var payload=JSON.stringify({name:n,email:e,message:m,project_type:t,budget:b});
+  var xhr=new XMLHttpRequest();
+  xhr.open('POST','https://formspree.io/f/mnjkaorz',true);
+  xhr.setRequestHeader('Content-Type','application/json');
+  xhr.setRequestHeader('Accept','application/json');
+  xhr.onload=function(){
+    btn.disabled=false;btn.textContent='Send Message';
+    if(xhr.status===200){
+      var toast=document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(function(){toast.classList.remove('show');},4500);
+      document.getElementById('cf-name').value='';
+      document.getElementById('cf-email').value='';
+      document.getElementById('cf-message').value='';
+    } else {
+      alert('Something went wrong. Please email me directly at sumair2424@gmail.com');
+    }
+  };
+  xhr.onerror=function(){
+    btn.disabled=false;btn.textContent='Send Message';
+    alert('Something went wrong. Please email me directly at sumair2424@gmail.com');
+  };
+  xhr.send(payload);
 }
 
 // ── INTERACTIVE PROJECTS ──────────────────────────────────
