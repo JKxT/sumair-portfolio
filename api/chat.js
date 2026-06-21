@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -14,7 +14,6 @@ export default async function handler(req, res) {
   try {
     const { messages, system, max_tokens } = req.body;
 
-    // Build messages array for Groq (OpenAI-compatible format)
     const groqMessages = [];
 
     if (system) {
@@ -22,18 +21,48 @@ export default async function handler(req, res) {
     }
 
     for (const msg of messages) {
-      // Handle vision: extract text only (Groq free tier is text-only)
       let content = '';
       if (typeof msg.content === 'string') {
         content = msg.content;
       } else if (Array.isArray(msg.content)) {
         content = msg.content
-          .filter(b => b.type === 'text')
-          .map(b => b.text)
+          .filter(function(b) { return b.type === 'text'; })
+          .map(function(b) { return b.text; })
           .join('\n');
       }
-      groqMessages.push({ role: msg.role, content });
+      groqMessages.push({ role: msg.role, content: content });
     }
+
+    const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + apiKey,
+      },
+      body: JSON.stringify({
+        model: 'llama-3.3-70b-versatile',
+        messages: groqMessages,
+        max_tokens: max_tokens || 600,
+        temperature: 0.7,
+      }),
+    });
+
+    const data = await groqRes.json();
+
+    if (!groqRes.ok) {
+      return res.status(groqRes.status).json({ error: 'Groq API error', details: data });
+    }
+
+    const text = (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) || '';
+
+    return res.status(200).json({
+      content: [{ type: 'text', text: text }],
+    });
+
+  } catch (err) {
+    return res.status(500).json({ error: 'Server error', details: err.message });
+  }
+};
 
     const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
