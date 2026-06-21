@@ -6,34 +6,68 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({ error: 'GEMINI_API_KEY not set' });
+    return res.status(500).json({ error: 'GROQ_API_KEY not set' });
   }
 
   try {
     const { messages, system, max_tokens } = req.body;
-    const contents = [];
-    let systemInstruction = null;
+
+    // Build messages array for Groq (OpenAI-compatible format)
+    const groqMessages = [];
 
     if (system) {
-      systemInstruction = { parts: [{ text: system }] };
+      groqMessages.push({ role: 'system', content: system });
     }
 
     for (const msg of messages) {
-      const role = msg.role === 'assistant' ? 'model' : 'user';
+      // Handle vision: extract text only (Groq free tier is text-only)
+      let content = '';
       if (typeof msg.content === 'string') {
-        contents.push({ role, parts: [{ text: msg.content }] });
+        content = msg.content;
       } else if (Array.isArray(msg.content)) {
-        const parts = [];
-        for (const block of msg.content) {
-          if (block.type === 'text') parts.push({ text: block.text });
-          else if (block.type === 'image') parts.push({ inlineData: { mimeType: block.source.media_type, data: block.source.data } });
-        }
-        contents.push({ role, parts });
+        content = msg.content
+          .filter(b => b.type === 'text')
+          .map(b => b.text)
+          .join('\n');
       }
+      groqMessages.push({ role: msg.role, content });
     }
 
+    const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: 'llama-3.3-70b-versatile',
+        messages: groqMessages,
+        max_tokens: max_tokens || 600,
+        temperature: 0.7,
+      }),
+    });
+
+    const data = await groqRes.json();
+
+    if (!groqRes.ok) {
+      console.error('Groq error:', JSON.stringify(data));
+      return res.status(groqRes.status).json({ error: 'Groq API error', details: data });
+    }
+
+    const text = data.choices?.[0]?.message?.content || '';
+
+    // Return Anthropic-compatible format so frontend needs no changes
+    return res.status(200).json({
+      content: [{ type: 'text', text }],
+    });
+
+  } catch (err) {
+    console.error('Handler error:', err);
+    return res.status(500).json({ error: 'Server error', details: err.message });
+  }
+}
     const body = {
       contents,
       generationConfig: { maxOutputTokens: max_tokens || 600, temperature: 0.7 },
